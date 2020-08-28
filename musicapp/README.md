@@ -16,4 +16,4 @@
 
 1.  进入相应文件夹分别 npm install
 2.  进入vue-mymusic文件夹 npm run serve 启动服务
-3.  进入另一个文件夹 node app
+3.  进入另一个文件夹(该后端引用于网易云音乐API) node app
