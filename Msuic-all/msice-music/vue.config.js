@@ -1,4 +1,9 @@
 'use strict'
+const path = require('path')
+function resolve(dir) {
+  console.log(path.join(__dirname, dir));
+  return path.join(__dirname, dir)
+}
 
 
 // If your port is set to 80,
@@ -40,8 +45,13 @@ module.exports = {
     // }
   },
   configureWebpack: {
-    // provide the app's title in webpack's name field, so that
-    // it can be accessed in index.html to inject the correct title.
-   
-  }
+    resolve: {
+      alias: {
+        'assets': '@/assets',
+        'components': '@/components',
+        'views': '@/views',
+        'layout': '@/layout',
+      }
+    }
+  },
 }

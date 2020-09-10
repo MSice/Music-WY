@@ -10,30 +10,30 @@ const service = axios.create({
     headers: {
         "Content-Type": "application/json;charset=utf-8"
     }
-})
+});
 
 // 请求拦截器，在  发送请求前正确或者错误应该干什么，
 service.interceptors.request.use(
     config => {
         console.log(config);
-        return config
+        return config;
     },
     error => {
         // do something with request error
-        console.log(error) // for debug
-        return Promise.reject(error)
+        console.log(error); // for debug
+        return Promise.reject(error);
     }
-)
+);
 
 // 响应拦截器，  对响应数据应该做什么，
 service.interceptors.response.use(
     response => {
-        return response
+        return response;
     },
     error => {
-        console.log('err' + error) // for debug
-        return Promise.reject(error)
+        console.log('err' + error); // for debug
+        return Promise.reject(error);
     }
-)
+);
 
-export default service
+export default service;

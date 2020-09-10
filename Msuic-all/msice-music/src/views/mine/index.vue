@@ -1,16 +1,11 @@
-<!--  -->
+<!-- 这里是我的-->
 <template>
-    <div id="app">
-        <router-view></router-view>
-    </div>
+    <div class>这里是我的</div>
 </template>
 
 <script>
-// import Navigation from "./components/navigation";
 export default {
-    components: {
-        // Navigation
-    },
+    components: {},
     data() {
         return {};
     },
@@ -23,24 +18,17 @@ export default {
     // 生命周期 - 创建完成（可以访问当前this实例）
     created() {},
     // 生命周期 - 挂载完成（可以访问DOM元素）
-    mounted() {}
+    mounted() {},
+    beforeCreate() {},
+    beforeMount() {},
+    beforeUpdate() {},
+    updated() {},
+    beforeDestroy() {},
+    destroyed() {},
+    // 如果页面有keep-alive缓存功能，这个函数会触发
+    activated() {}
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 // @import url(); 引入公共css类
-* {
-    margin: 0;
-    padding: 0;
-}
-a {
-    text-decoration: none;
-}
-li {
-    list-style: none;
-}
-.clearfix::after {
-    content: "";
-    display: block;
-    clear: both;
-}
 </style>
