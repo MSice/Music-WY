@@ -17,27 +17,51 @@ const routes = [
     },
     {
         path: "/Friend",
-        name: "Friend",
-        component: () =>
-            import("@/views/friend")
+        name: "friend",
+        component: Layout,
+        redirect: '/friend',
+        children: [{
+            path: '/friend',
+            name: 'Friend',
+            component: () =>
+                import("@/views/friend")
+        }]
     },
     {
         path: "/Video",
-        name: "Video",
-        component: () =>
-            import("@/views/video")
+        name: "video",
+        component: Layout,
+        redirect: '/video',
+        children: [{
+            path: '/video',
+            name: 'Video',
+            component: () =>
+                import("@/views/video")
+        }]
     },
     {
         path: "/Mine",
-        name: "Mine",
-        component: () =>
-            import("@/views/mine")
+        name: "mine",
+        component: Layout,
+        redirect: '/mine',
+        children: [{
+            path: '/mine',
+            name: 'Mine',
+            component: () =>
+                import("@/views/mine")
+        }]
     },
     {
         path: "/Test",
-        name: "Test",
-        component: () =>
-            import("@/views/test")
+        name: "test",
+        component: Layout,
+        redirect: '/test',
+        children: [{
+            path: '/test',
+            name: 'Test',
+            component: () =>
+                import("@/views/test")
+        }]
     },
 ];
 

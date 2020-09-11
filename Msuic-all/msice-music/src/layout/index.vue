@@ -3,16 +3,19 @@
     <div class>
         <nav-bar></nav-bar>
         <app-main></app-main>
+        <music-player></music-player>
     </div>
 </template>
 
 <script>
 import { AppMain, Meum, NavBar } from "./components";
+import MusicPlayer from "@/components/music-player";
 export default {
     components: {
         AppMain,
         Meum,
-        NavBar
+        NavBar,
+        MusicPlayer
     },
     data() {
         return {};

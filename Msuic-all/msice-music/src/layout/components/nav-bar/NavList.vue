@@ -2,76 +2,77 @@
 <template>
     <div class="header">
         <ul>
-            <li></li>
+            <li
+                v-for="page in navList"
+                :key="page.id"
+                :class="$route.path == page.path? 'active' : ''"
+                @click="goPage(page.path)"
+            >{{page.pageName}}</li>
         </ul>
     </div>
 </template>
 
 <script>
 export default {
-    components: {},
     data() {
         return {
             navList: [
                 {
                     id: "0001",
-                    name: "Mine",
+                    name: "mine",
                     pageName: "我的",
-                    path: "/mine"
+                    path: "/Mine"
                 },
                 {
                     id: "0002",
-                    name: "Finding",
+                    name: "find",
                     pageName: "发现",
-                    path: "/finding"
+                    path: "/Find"
                 },
                 {
                     id: "0003",
-                    name: "Friend",
+                    name: "friend",
                     pageName: "云村",
-                    path: "/friend"
+                    path: "/Friend"
                 },
                 {
                     id: "0004",
-                    name: "Video",
+                    name: "video",
                     pageName: "视频",
-                    path: "/video"
+                    path: "/Video"
                 },
                 {
                     id: "0005",
                     name: "test",
-                    pageName: "text",
-                    path: "/test"
+                    pageName: "test",
+                    path: "/Test"
                 }
             ]
         };
     },
-    props: {},
-    // 监听属性 类似于data概念
-    computed: {},
-    // 监控data中的数据变化
-    watch: {},
-
-    methods: {},
-    // 生命周期 - 创建完成（可以访问当前this实例）
-    created() {},
-    // 生命周期 - 挂载完成（可以访问DOM元素）
-    mounted() {},
-    beforeCreate() {},
-    beforeMount() {},
-    beforeUpdate() {},
-    updated() {},
-    beforeDestroy() {},
-    destroyed() {},
-    // 如果页面有keep-alive缓存功能，这个函数会触发
-    activated() {}
+    methods: {
+        goPage(path) {
+            console.log(path);
+            this.$router.push(path);
+        }
+    }
 };
 </script>
 <style lang="scss" scoped>
-// @import url(); 引入公共css类
 .header {
     width: 100%;
     height: 100%;
-    background-color: rgb(0, 225, 255);
+    ul {
+        display: flex;
+        li {
+            color: #696969;
+            flex-grow: 1;
+        }
+        .active {
+            font-size: 1.1rem;
+            color: #000;
+            font-weight: initial;
+        }
+    }
 }
 </style>

@@ -1,8 +1,8 @@
 <!--  -->
 <template>
     <div class="nav-bar">
-        <div class="meum">
-            <i class="iconfont icon-MENU"></i>
+        <div class="meum" style="font-weight: 600">
+            <i class="iconfont icon-meum-copy"></i>
         </div>
         <div class="nav-list">
             <nav-list></nav-list>
@@ -47,20 +47,21 @@ export default {
 .nav-bar {
     position: fixed;
     height: 3.3rem;
-    width: 100%;
+    width: 96%;
     display: flex;
     text-align: center;
     line-height: 3.3rem;
-    font-size: 1.2rem;
-    .meum {
+    font-size: .95rem;
+    padding: 0 2%;
+    z-index: 10000;
+    .meum, .serch {
+        font-size: 1.2rem;
+        font-weight: 500;
         flex-grow: 1.6;
     }
     .nav-list {
-        padding: 0 1%;
+        padding: 0 4%;
         flex-grow: 8;
-    }
-    .serch {
-        flex-grow: 1.6;
     }
 }
 </style>

@@ -1,34 +1,45 @@
-<!-- 测试-->
+<!-- 全屏播放器 -->
 <template>
-    <div class>练习</div>
+    <div class=""></div>
 </template>
 
 <script>
 export default {
+
     components: {},
     data() {
-        return {};
+
+        return {
+
+        };
     },
     // 监听属性 类似于data概念
     computed: {},
     // 监控data中的数据变化
     watch: {},
 
-    methods: {},
+    methods: {
+
+    },
     // 生命周期 - 创建完成（可以访问当前this实例）
-    created() {},
+    created() {
+
+    },
     // 生命周期 - 挂载完成（可以访问DOM元素）
-    mounted() {},
-    beforeCreate() {},
+    mounted() {
+
+    },
+    beforeCreate() {}, 
     beforeMount() {},
-    beforeUpdate() {},
-    updated() {},
-    beforeDestroy() {},
-    destroyed() {},
+    beforeUpdate() {}, 
+    updated() {}, 
+    beforeDestroy() {}, 
+    destroyed() {}, 
     // 如果页面有keep-alive缓存功能，这个函数会触发
-    activated() {}
-};
+    activated() {}, 
+    }
 </script>
 <style lang="scss" scoped>
-// @import url(); 引入公共css类
+    // @import url(); 引入公共css类
+
 </style>

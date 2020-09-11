@@ -1,6 +1,8 @@
-<!-- 测试-->
+<!-- 播放器 -->
 <template>
-    <div class>练习</div>
+    <div class="music-player">
+        <audio src=""></audio>
+    </div>
 </template>
 
 <script>
@@ -31,4 +33,13 @@ export default {
 </script>
 <style lang="scss" scoped>
 // @import url(); 引入公共css类
+.music-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10000;
+    height: 3.6rem;
+    width: 100%;
+    background-color: blue;
+}
 </style>

@@ -51,6 +51,7 @@ module.exports = {
         'components': '@/components',
         'views': '@/views',
         'layout': '@/layout',
+        'styles': '@/styles'
       }
     }
   },

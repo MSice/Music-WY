@@ -4,6 +4,7 @@ import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 import './icons/iconfont.css';
+import '@/styles/index.css';
 
 Vue.config.productionTip = false;
 

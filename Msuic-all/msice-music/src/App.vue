@@ -28,19 +28,4 @@ export default {
 </script>
 <style lang="scss">
 // @import url(); 引入公共css类
-* {
-    margin: 0;
-    padding: 0;
-}
-a {
-    text-decoration: none;
-}
-li {
-    list-style: none;
-}
-.clearfix::after {
-    content: "";
-    display: block;
-    clear: both;
-}
 </style>
