@@ -35,6 +35,7 @@ ul {
 
 body {
   color: #000;
+  background-color: #f9f9f9;
   font-family: Arial, Microsoft Yahei, Helvetica Neue, Helvetica, sans-serif;
 }
 
@@ -43,4 +44,8 @@ body {
   visibility: hidden;
   display: block;
   clear: both;
+}
+
+.back-color {
+  background-color: #f9f9f9;
 }

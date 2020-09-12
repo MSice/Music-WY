@@ -1,13 +1,28 @@
 <!-- 播放器 -->
 <template>
     <div class="music-player">
-        <audio src=""></audio>
+    <!-- controls -->
+      <!-- @play="onPlay"
+      @pause="onPause"
+      @timeupdate="updateTime"
+      @loadedmetadata="onLoadedmetadata"
+      @ended="end" -->
+    <div class="mini">
+        <mini-player></mini-player>
+    </div>
+    <audio
+      ref="AudioPlayer"
+      controls
+      src="https://sw-sycdn.kuwo.cn/0c36dcf57a83da584c33519d50183fba/5f5c9064/resource/n3/98/2/2614265121.mp3"
+    />
     </div>
 </template>
 
 <script>
+// FullPlayer
+import {MiniPlayer} from './compontents';
 export default {
-    components: {},
+    components: {MiniPlayer},
     data() {
         return {};
     },
@@ -34,12 +49,5 @@ export default {
 <style lang="scss" scoped>
 // @import url(); 引入公共css类
 .music-player {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 10000;
-    height: 3.6rem;
-    width: 100%;
-    background-color: blue;
 }
 </style>
