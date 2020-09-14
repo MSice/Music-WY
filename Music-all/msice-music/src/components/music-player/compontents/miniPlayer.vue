@@ -6,7 +6,7 @@
         </div>
         <div class="content"></div>
         <div class="list-btn">
-            <span class="iconfont icon-caidan"></span>
+            <strong class="iconfont icon-caidan"></strong>
         </div>
     </div>
 </template>
