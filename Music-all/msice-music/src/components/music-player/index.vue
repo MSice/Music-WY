@@ -13,7 +13,7 @@
     <audio
       ref="AudioPlayer"
       controls
-      src="https://sw-sycdn.kuwo.cn/0c36dcf57a83da584c33519d50183fba/5f5c9064/resource/n3/98/2/2614265121.mp3"
+      src="@/assets/defult-music/defult-one.mp3"
     />
     </div>
 </template>

@@ -67,6 +67,7 @@ export default {
         li {
             color: #696969;
             flex-grow: 1;
+            // padding-bottom: 0.4rem;
         }
         .active {
             font-size: 1.1rem;

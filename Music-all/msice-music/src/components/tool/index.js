@@ -1,0 +1,1 @@
+export { default as CircleProcess } from './circleProcess.vue';
