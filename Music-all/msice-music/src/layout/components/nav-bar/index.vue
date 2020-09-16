@@ -50,17 +50,17 @@ export default {
     width: 96%;
     display: flex;
     text-align: center;
-    line-height: 3.3rem;
+    line-height: 3.6rem;
     font-size: .95rem;
     padding: 0 2%;
     z-index: 10000;
     .meum, .serch {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         font-weight: 500;
-        flex-grow: 1.6;
+        flex-grow: 1;
     }
     .nav-list {
-        padding: 0 4%;
+        padding: 0 6%;
         flex-grow: 8;
     }
 }
