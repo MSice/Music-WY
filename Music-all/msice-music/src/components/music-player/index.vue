@@ -1,49 +1,61 @@
 <!-- 播放器 -->
 <template>
     <div class="music-player">
-    <!-- controls -->
-      <!-- @play="onPlay"
+        <!-- controls -->
+        <!-- @play="onPlay"
       @pause="onPause"
       @timeupdate="updateTime"
       @loadedmetadata="onLoadedmetadata"
-      @ended="end" -->
-    <div class="mini">
-        <mini-player></mini-player>
-    </div>
-    <audio
-      ref="AudioPlayer"
-      controls
-      src="@/assets/defult-music/defult-one.mp3"
-    />
+        @ended="end"-->
+        <div class="mini">
+            <mini-player
+                :playing="playing"
+                :show_mini="!fullScreen"
+                :music_info="music_info"
+                :percentage="percentage"
+                @play="play"
+            ></mini-player>
+        </div>
+        <audio
+            ref="AudioPlayer"
+            @timeupdate="updateTime"
+            @loadedmetadata="onLoadedmetadata"
+            controls
+            src="@/assets/defult-music/defult-one.mp3"
+        />
     </div>
 </template>
 
 <script>
 // FullPlayer
-import {MiniPlayer} from './compontents';
+import { MiniPlayer } from "./compontents";
+import playerControl from "./miXin/playerControl";
 export default {
-    components: {MiniPlayer},
+    components: { MiniPlayer },
     data() {
         return {};
     },
+    mixins: [playerControl],
     // 监听属性 类似于data概念
-    computed: {},
+    computed: {
+        music_info: function() {
+            return {
+                name: "摩天动物园",
+                author: "邓紫棋",
+                picSrc: "@/assets/defult-image/music.jpg"
+            };
+        }
+    },
     // 监控data中的数据变化
-    watch: {},
-
-    methods: {},
+    watch: {
+        playing: function (newVal) {
+            console.log(newVal);
+        }
+    },
     // 生命周期 - 创建完成（可以访问当前this实例）
     created() {},
     // 生命周期 - 挂载完成（可以访问DOM元素）
-    mounted() {},
-    beforeCreate() {},
-    beforeMount() {},
-    beforeUpdate() {},
-    updated() {},
-    beforeDestroy() {},
-    destroyed() {},
-    // 如果页面有keep-alive缓存功能，这个函数会触发
-    activated() {}
+    mounted() {}
 };
 </script>
 <style lang="scss" scoped>

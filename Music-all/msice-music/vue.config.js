@@ -52,6 +52,7 @@ module.exports = {
         'views': '@/views',
         'layout': '@/layout',
         'styles': '@/styles',
+        'src': '@/src'
       }
     }
   },

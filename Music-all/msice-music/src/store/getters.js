@@ -1,6 +1,6 @@
 // 播放组件相关
 // 播放
-export const playing = state => state.musicPlayer.playing;
+export const playing = state =>  state.musicPlayer.playing;
 // 是否全屏
 export const fullScreen = state => state.musicPlayer.fullScreen;
 // 歌曲ID

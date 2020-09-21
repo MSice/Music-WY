@@ -20,7 +20,7 @@ const state = {
     // 音乐加载状态
     musicLodding: false,
     // 音乐播放状态
-    playing: false,
+    playing: true,
     // 播放器模式 全屏 / 迷你 
     fullScreen: false,
     // 播放模式

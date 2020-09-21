@@ -1,8 +1,8 @@
 <!-- 环状进度条 -->
 <template>
     <svg
-        transform= "rotate(-90 0 0)"
-        transform-origin = "50% 50%"
+        transform="rotate(-90 0 0)"
+        transform-origin="50% 50%"
         :height="processOptions.width"
         :width="processOptions.width"
         x-mlns="http://www.w3.org/200/svg"
@@ -49,7 +49,7 @@ export default {
         },
         percentage: {
             type: Number,
-            default: 50
+            default: 0.2
         }
     },
     // 监听属性 类似于data概念
@@ -69,12 +69,10 @@ export default {
             options.r = this.width / 2 - 2;
             options.width = this.width;
             options.position = this.width / 2;
-            options.percent =
-                (perimeter * this.percentage) / 100 - perimeter * 0.0002;
+            options.percent = perimeter * this.percentage;
             if (options.percent < 0) {
                 options.percent = 0;
             }
-            console.log(options,perimeter);
             return options;
         }
     }

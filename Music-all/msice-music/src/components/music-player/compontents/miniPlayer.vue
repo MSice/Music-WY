@@ -6,18 +6,18 @@
         </div>
         <div class="content">
             <div class="music-info">
-                <div class="sings-name">摩天动物园摩天动物园摩天动物园摩天动物园摩天动物园摩天动物园摩天动物园摩天动物园</div>
-                <div class="sings-other">邓紫棋</div>
+                <div class="sings-name">{{music_info.name}}</div>
+                <div class="sings-other">{{music_info.author}}</div>
             </div>
-            <div class="playing-btn" ref="palyingBtn">
+            <div class="playing-btn" ref="palyingBtn" @click="play()">
                 <circle-process
                     :width="processConfig.width"
                     :strokeWidth="processConfig.strokeWidth"
-                    :percentage="processConfig.percentage"
+                    :percentage="percentage"
                     :backgroundColor="'#180707d0'"
                     :processColor="'#e7111c'"
                 ></circle-process>
-                <span class="btn iconfont icon-yousanjiao"></span>
+                <span :class="['btn', 'iconfont', playing?'icon-la-':'icon-yousanjiao']"></span>
             </div>
         </div>
         <div class="list-btn">
@@ -36,10 +36,23 @@ export default {
         return {
             processConfig: {
                 width: 30,
-                percentage: 50,
                 strokeWidth: 2
             }
         };
+    },
+    props: {
+        playing: {
+            type: Boolean
+        },
+        show_mini: {
+            type: Boolean
+        },
+        music_info: {
+            type: Object
+        },
+        percentage: {
+            type: Number
+        }
     },
     // 监听属性 类似于data概念
     computed: {},
@@ -47,6 +60,9 @@ export default {
     watch: {},
 
     methods: {
+        play() {
+            this.$emit("play");
+        },
         init() {
             let playingBtnWidth = this.$refs.palyingBtn.clientWidth;
             let playingBtnHeight = this.$refs.palyingBtn.clientHeight;
@@ -101,6 +117,8 @@ export default {
 
 .mini-player .picture {
     img {
+        // animation: rotating 2s linear infinite;
+        // animation-play-state: running;
         width: 100%;
         border-radius: 50%;
     }
@@ -153,6 +171,11 @@ export default {
             top: 50%;
             left: 50%;
             transform: translate(-38%, -48%);
+            font-weight: 600;
+        }
+        .icon-la- {
+            font-size: 0.85rem;
+            transform: translate(-50%, -50%);
         }
     }
 }
