@@ -1,8 +1,8 @@
 <!-- 迷你播放器 -->
 <template>
     <div class="mini-player">
-        <div class="picture">
-            <img src="@/assets/defult-image/music.jpg" alt />
+        <div class="picture" :style="{'animation-play-state': playing?'running':'paused'}">
+            <img :src="music_info.picSrc" alt />
         </div>
         <div class="content">
             <div class="music-info">
@@ -116,6 +116,7 @@ export default {
 }
 
 .mini-player .picture {
+    animation: rotating 18s linear infinite;
     img {
         // animation: rotating 2s linear infinite;
         // animation-play-state: running;

@@ -1,3 +1,6 @@
+/**
+ * 封装 axios
+ */
 import axios from "axios";
 
 // 创建一个axios实例
@@ -15,7 +18,6 @@ const service = axios.create({
 // 请求拦截器，在  发送请求前正确或者错误应该干什么，
 service.interceptors.request.use(
     config => {
-        console.log(config);
         return config;
     },
     error => {
@@ -28,7 +30,7 @@ service.interceptors.request.use(
 // 响应拦截器，  对响应数据应该做什么，
 service.interceptors.response.use(
     response => {
-        return response;
+        return response.data;
     },
     error => {
         console.log('err' + error); // for debug

@@ -21,7 +21,7 @@
             @timeupdate="updateTime"
             @loadedmetadata="onLoadedmetadata"
             controls
-            src="@/assets/defult-music/defult-one.mp3"
+            :src="music_info.musicUrl"
         />
     </div>
 </template>
@@ -40,16 +40,20 @@ export default {
     computed: {
         music_info: function() {
             return {
-                name: "摩天动物园",
-                author: "邓紫棋",
-                picSrc: "@/assets/defult-image/music.jpg"
+                name: this.musicName,
+                author: this.musicAuthor,
+                picSrc: this.musicPicUrl,
+                musicUrl: this.musicUrl
             };
         }
     },
     // 监控data中的数据变化
     watch: {
-        playing: function (newVal) {
-            console.log(newVal);
+        playing: function (newPlaying) {
+            const audio = this.$refs.AudioPlayer;
+            this.$nextTick(() => {
+                newPlaying ? audio.play() : audio.pause();
+            });
         }
     },
     // 生命周期 - 创建完成（可以访问当前this实例）

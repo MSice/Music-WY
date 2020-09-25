@@ -12,12 +12,12 @@ export const PlayingIndex = state => state.musicPlayer.MusicInfo.PlayingIndex;
 // 播放模式
 export const mode = state => state.musicPlayer.mode;
 // 当前播放歌单信息
-export const MusicList = state => state.musicPlayer.List.MusicList;
+export const MusicList = state => state.musicList.MusicList;
 // 上一次播放歌单
-export const OldMusicList = state => state.musicPlayer.List.OldMusicList;
+export const OldMusicList = state => state.musicList.OldMusicList;
 // 历史播放歌单
-export const HistoryMusicList = state => state.musicPlayer.List.HistoryMusicList;
+export const HistoryMusicList = state => state.musicList.HistoryMusicList;
 // 随机播放歌单
-export const RandomList = state => state.musicPlayer.List.RandomList;
+export const RandomList = state => state.musicList.RandomList;
 // 歌单来源
-export const Listfrom = state => state.musicPlayer.List.Listfrom;
+export const Listfrom = state => state.musicList.Listfrom;

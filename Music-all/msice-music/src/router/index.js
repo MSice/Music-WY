@@ -7,10 +7,11 @@ Vue.use(VueRouter);
 const routes = [
     {
         path: '/',
+        name: "find",
         component: Layout,
-        redirect: '/find',
+        redirect: '/Find',
         children: [{
-            path: 'Find',
+            path: '/Find',
             name: 'Find',
             component: Find,
         }]
