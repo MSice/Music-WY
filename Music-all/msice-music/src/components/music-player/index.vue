@@ -7,13 +7,24 @@
       @timeupdate="updateTime"
       @loadedmetadata="onLoadedmetadata"
         @ended="end"-->
-        <div class="mini">
+        <div v-show="fullScreen">
+            <full-player
+                :playing="playing"
+                :show_mini="!fullScreen"
+                :music_info="music_info"
+                :percentage="percentage"
+                @play="play"
+                @setfullscreen="setfullscreen"
+            ></full-player>
+        </div>
+        <div class="mini" v-show="!fullScreen">
             <mini-player
                 :playing="playing"
                 :show_mini="!fullScreen"
                 :music_info="music_info"
                 :percentage="percentage"
                 @play="play"
+                @setfullscreen="setfullscreen"
             ></mini-player>
         </div>
         <audio
@@ -22,16 +33,18 @@
             @loadedmetadata="onLoadedmetadata"
             controls
             :src="music_info.musicUrl"
-        />
+        >
+            浏览器不支持该播放器
+        </audio>
     </div>
 </template>
 
 <script>
 // FullPlayer
-import { MiniPlayer } from "./compontents";
+import { MiniPlayer, FullPlayer } from "./compontents";
 import playerControl from "./miXin/playerControl";
 export default {
-    components: { MiniPlayer },
+    components: { MiniPlayer, FullPlayer },
     data() {
         return {};
     },
@@ -49,7 +62,7 @@ export default {
     },
     // 监控data中的数据变化
     watch: {
-        playing: function (newPlaying) {
+        playing: function(newPlaying) {
             const audio = this.$refs.AudioPlayer;
             this.$nextTick(() => {
                 newPlaying ? audio.play() : audio.pause();
@@ -64,6 +77,4 @@ export default {
 </script>
 <style lang="scss" scoped>
 // @import url(); 引入公共css类
-.music-player {
-}
 </style>

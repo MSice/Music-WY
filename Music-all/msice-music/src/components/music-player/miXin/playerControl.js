@@ -40,7 +40,7 @@ export default {
     methods: {
         ...mapMutations('musicPlayer', {
             setPlaying: "music_Start",
-            setFullScreen: "music_FullScreen",
+            setfullscreen: "music_FullScreen",
         }),
         async get_all (id) {
             console.log(id);
@@ -55,6 +55,10 @@ export default {
                 this.musicUrl = ret.data[0].url;
                 console.log(this.musicUrl);
             });
+        },
+        show() {
+            console.log('show');
+            this.setFullScreen();
         },
         play() {
             this.setPlaying(!this.playing);

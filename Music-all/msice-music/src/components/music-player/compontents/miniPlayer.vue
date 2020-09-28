@@ -1,7 +1,7 @@
 <!-- 迷你播放器 -->
 <template>
     <div class="mini-player">
-        <div class="picture" :style="{'animation-play-state': playing?'running':'paused'}">
+        <div class="picture" :style="{'animation-play-state': playing?'running':'paused'}" @click="$emit('setfullscreen', true)">
             <img :src="music_info.picSrc" alt />
         </div>
         <div class="content">
@@ -71,9 +71,9 @@ export default {
                     ? playingBtnWidth
                     : playingBtnHeight;
             if (playingBtnStyle >= 30) {
-                this.processConfig.width = playingBtnStyle-2;
+                this.processConfig.width = playingBtnStyle - 2;
                 this.processConfig.strokeWidth =
-                    Math.ceil(playingBtnStyle / 9)-2;
+                    Math.ceil(playingBtnStyle / 9) - 2;
             }
         }
     },
@@ -171,12 +171,12 @@ export default {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-38%, -48%);
+            transform: translate(-38%, -45.5%);
             font-weight: 600;
         }
         .icon-la- {
             font-size: 0.85rem;
-            transform: translate(-50%, -50%);
+            transform: translate(-50.2%, -49%);
         }
     }
 }
