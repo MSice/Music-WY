@@ -10,7 +10,7 @@ const state = {
     // 音乐播放状态
     playing: false,
     // 播放器模式 全屏 / 迷你 
-    fullScreen: false,
+    fullScreen: true,
     // 播放模式
     mode: playMode.Only
 };

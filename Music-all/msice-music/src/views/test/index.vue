@@ -2,18 +2,30 @@
 <template>
     <div class>
         练习
-        <circle-process :width="60" :strokeWidth="3" :percentage="test"></circle-process>
-        <div class="div" style="width:50px;height: 50px;background-color:#00000099;dispaly:flex;">
-            <span class="btn iconfont icon-yousanjiao"></span>
+        <!-- <circle-process
+            :width="60"
+            :strokeWidth="3"
+            :percentage="test"
+        ></circle-process> -->
+        <div
+            style="width:70%; position: absolute; left:50%; transform: translateX(-50%);height: 3rem;background-color: #c0c0c0"
+        >
+            <slide-process></slide-process>
         </div>
+        <!-- <div
+            class="div"
+            style="width:50px;height: 50px;background-color:#00000099;dispaly:flex;"
+        >
+            <span class="btn iconfont icon-yousanjiao"></span>
+        </div> -->
     </div>
 </template>
 
 <script>
-import { CircleProcess } from "@/components/tool";
+import { SlideProcess } from "@/components/tool";
 // ['width', 'strokeWidth', 'backgroundColor', 'processColor', 'percentage']
 export default {
-    components: { CircleProcess },
+    components: { SlideProcess },
     data() {
         return {
             test: 0

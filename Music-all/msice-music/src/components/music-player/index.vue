@@ -27,11 +27,12 @@
                 @setfullscreen="setfullscreen"
             ></mini-player>
         </div>
+        <!-- 
+            controls -->
         <audio
             ref="AudioPlayer"
             @timeupdate="updateTime"
             @loadedmetadata="onLoadedmetadata"
-            controls
             :src="music_info.musicUrl"
         >
             浏览器不支持该播放器
