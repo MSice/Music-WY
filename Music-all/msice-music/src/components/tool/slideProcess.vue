@@ -35,7 +35,7 @@ export default {
     computed: {
         percen_tage: function() {
             if (this.touch.type) {
-                // this.setpercentage(this.percenTage * 100);
+                this.setpercentage(this.percenTage * 100);
             }
             return this.percentage;
         }
