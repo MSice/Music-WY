@@ -13,8 +13,11 @@
                 :show_mini="!fullScreen"
                 :music_info="music_info"
                 :percentage="percentage"
+                :maxTime="maxTime"
+                :nowTime="nowTime"
                 @play="play"
                 @setfullscreen="setfullscreen"
+                @chenge_time="chenge_time"
             ></full-player>
         </div>
         <div class="mini" v-show="!fullScreen">
@@ -31,6 +34,9 @@
             controls -->
         <audio
             ref="AudioPlayer"
+            @play="onPlay"
+            @pause="onPause"
+            @ended="end"
             @timeupdate="updateTime"
             @loadedmetadata="onLoadedmetadata"
             :src="music_info.musicUrl"
@@ -59,7 +65,17 @@ export default {
                 picSrc: this.musicPicUrl,
                 musicUrl: this.musicUrl
             };
-        }
+        },
+        maxTime: function () {
+            console.log(this.maxtime);
+            return this.maxtime;
+        },
+        nowTime: function () {
+            return this.nowtime;
+        },
+        percentage: function () {
+            return this.nowtime / this.maxtime;
+        },
     },
     // 监控data中的数据变化
     watch: {
@@ -68,6 +84,12 @@ export default {
             this.$nextTick(() => {
                 newPlaying ? audio.play() : audio.pause();
             });
+        }
+    },
+    methods: {
+        chenge_time(perstenge) {
+            this.$refs.AudioPlayer.currentTime = this.maxtime * perstenge / 100;
+            return true;
         }
     },
     // 生命周期 - 创建完成（可以访问当前this实例）

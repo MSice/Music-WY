@@ -1,13 +1,17 @@
 <!-- 迷你播放器 -->
 <template>
     <div class="mini-player">
-        <div class="picture" :style="{'animation-play-state': playing?'running':'paused'}" @click="$emit('setfullscreen', true)">
+        <div
+            class="picture"
+            :style="{ 'animation-play-state': playing ? 'running' : 'paused' }"
+            @click="$emit('setfullscreen', true)"
+        >
             <img :src="music_info.picSrc" alt />
         </div>
         <div class="content">
             <div class="music-info">
-                <div class="sings-name">{{music_info.name}}</div>
-                <div class="sings-other">{{music_info.author}}</div>
+                <div class="sings-name">{{ music_info.name }}</div>
+                <div class="sings-other">{{ music_info.author }}</div>
             </div>
             <div class="playing-btn" ref="palyingBtn" @click="play()">
                 <circle-process
@@ -17,7 +21,13 @@
                     :backgroundColor="'#180707d0'"
                     :processColor="'#e7111c'"
                 ></circle-process>
-                <span :class="['btn', 'iconfont', playing?'icon-la-':'icon-yousanjiao']"></span>
+                <span
+                    :class="[
+                        'btn',
+                        'iconfont',
+                        playing ? 'icon-la-' : 'icon-yousanjiao'
+                    ]"
+                ></span>
             </div>
         </div>
         <div class="list-btn">
@@ -171,7 +181,7 @@ export default {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-38%, -45.5%);
+            transform: translate(-42%, -43.5%);
             font-weight: 600;
         }
         .icon-la- {

@@ -37,11 +37,14 @@
                 </li>
             </div>
             <div class="control-slide">
-                <div class="nowtime">00:00</div>
+                <div class="nowtime">{{ nowtime }}</div>
                 <div class="slide">
-                    <slide-process></slide-process>
+                    <slide-process
+                        :percenTage="percentage"
+                        @chenge_percentage="chenge_time"
+                    ></slide-process>
                 </div>
-                <div class="maxtime">03:41</div>
+                <div class="maxtime">{{ maxtime }}</div>
             </div>
             <div class="control-btn">
                 <li class="other">
@@ -78,6 +81,7 @@
 
 <script>
 import { SlideProcess } from "@/components/tool";
+import { music_time } from "@/utils/fillter";
 export default {
     components: { SlideProcess },
     data() {
@@ -97,18 +101,37 @@ export default {
         },
         percentage: {
             type: Number
+        },
+        maxTime: {
+            type: Number
+        },
+        nowTime: {
+            type: Number
         }
     },
     // 监听属性 类似于data概念
-    computed: {},
+    computed: {
+        maxtime: function() {
+            return music_time(this.maxTime);
+        },
+        nowtime: function() {
+            return music_time(this.nowTime);
+        }
+    },
     // 监控data中的数据变化
     watch: {},
 
-    methods: {},
+    methods: {
+        chenge_time(perstage) {
+            return this.$emit("chenge_time", perstage);
+        }
+    },
     // 生命周期 - 创建完成（可以访问当前this实例）
     created() {},
     // 生命周期 - 挂载完成（可以访问DOM元素）
-    mounted() {}
+    mounted() {
+        console.log(this.maxTime);
+    }
 };
 </script>
 <style lang="scss" scoped>

@@ -29,9 +29,6 @@ export default {
             "HistoryMusicList",
             "mode"
         ]),
-        percentage: function () {
-            return this.nowtime / this.maxtime;
-        },
         music_url: function () {
             console.log(this.musicUrl);
             return this.musicUrl;
@@ -42,15 +39,15 @@ export default {
             setPlaying: "music_Start",
             setfullscreen: "music_FullScreen",
         }),
-        async get_all (id) {
+        async get_all(id) {
             console.log(id);
-            await _getSongDetail(id).then(ret=>{
+            await _getSongDetail(id).then(ret => {
                 console.log(ret);
                 this.musicName = ret.songs[0].al.name;
                 this.musicPicUrl = ret.songs[0].al.picUrl;
                 this.musicAuthor = ret.songs[0].ar[0].name;
             });
-            await _getSongUrl(id).then(ret=>{
+            await _getSongUrl(id).then(ret => {
                 console.log(ret);
                 this.musicUrl = ret.data[0].url;
                 console.log(this.musicUrl);
@@ -68,6 +65,15 @@ export default {
         },
         onLoadedmetadata(e) {
             this.maxtime = e.target.duration;
+        },
+        onPlay() {
+            this.$store.state.PlayerAudio.playing = true;
+        },
+        onPause() {
+            this.$store.state.PlayerAudio.playing = false;
+        },
+        end() {
+            // this.$store.state.PlayerAudio.playing = false;
         },
     },
     created() {
