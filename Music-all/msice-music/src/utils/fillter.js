@@ -28,6 +28,5 @@ export function music_time(time) {
         s = '0' + s;
     }
     timeFormat = timeFormat + s;
-    console.log(new Date().getSeconds()  + '-------9');
     return timeFormat;
 }
