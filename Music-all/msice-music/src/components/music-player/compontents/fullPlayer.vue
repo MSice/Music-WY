@@ -37,14 +37,15 @@
                 </li>
             </div>
             <div class="control-slide">
-                <div class="nowtime">{{ nowtime }}</div>
-                <div class="slide">
-                    <slide-process
-                        :percenTage="percentage"
-                        @chenge_percentage="chenge_time"
-                    ></slide-process>
+                <div class="nowtime">
+                    <slot name="nowtime"></slot>
                 </div>
-                <div class="maxtime">{{ maxtime }}</div>
+                <div class="slide">
+                    <slot name="slide"></slot>
+                </div>
+                <div class="maxtime">
+                    <slot name="maxtime"></slot>
+                </div>
             </div>
             <div class="control-btn">
                 <li class="other">
@@ -80,10 +81,8 @@
 </template>
 
 <script>
-import { SlideProcess } from "@/components/tool";
-import { music_time } from "@/utils/fillter";
 export default {
-    components: { SlideProcess },
+    components: {},
     data() {
         return {
             height: document.documentElement.clientHeight
@@ -98,40 +97,18 @@ export default {
         },
         music_info: {
             type: Object
-        },
-        percentage: {
-            type: Number
-        },
-        maxTime: {
-            type: Number
-        },
-        nowTime: {
-            type: Number
         }
     },
     // 监听属性 类似于data概念
-    computed: {
-        maxtime: function() {
-            return music_time(this.maxTime);
-        },
-        nowtime: function() {
-            return music_time(this.nowTime);
-        }
-    },
+    computed: {},
     // 监控data中的数据变化
     watch: {},
 
-    methods: {
-        chenge_time(perstage) {
-            return this.$emit("chenge_time", perstage);
-        }
-    },
+    methods: {},
     // 生命周期 - 创建完成（可以访问当前this实例）
     created() {},
     // 生命周期 - 挂载完成（可以访问DOM元素）
-    mounted() {
-        console.log(this.maxTime);
-    }
+    mounted() {}
 };
 </script>
 <style lang="scss" scoped>

@@ -2,10 +2,10 @@
 <template>
     <div class="slideProcess" ref="slideProcess" @click="chengPercentage">
         <div class="background"></div>
-        <div class="process" :style="{ width: percen_tage + '%' }"></div>
+        <div class="process" :style="{ width: percentage + '%' }"></div>
         <div
             class="slider"
-            :style="{ left: percen_tage + '%' }"
+            :style="{ left: percentage + '%' }"
             @touchstart.prevent="start"
             @touchmove.prevent="move"
             @touchend="end"
@@ -32,16 +32,15 @@ export default {
         }
     },
     // 监听属性 类似于data概念
-    computed: {
-        percen_tage: function() {
-            if (this.touch.type) {
-                // this.setpercentage(this.percenTage * 100);
+    computed: {},
+    // 监控data中的数据变化
+    watch: {
+        percenTage: function(newPercentage) {
+            if (newPercentage && this.touch.type) {
+                this.percentage = newPercentage * 100;
             }
-            return this.percentage;
         }
     },
-    // 监控data中的数据变化
-    watch: {},
 
     methods: {
         start() {
@@ -56,8 +55,6 @@ export default {
                 .left;
             const clientX = e.touches[0].clientX;
             this.touch.width = ((clientX - left) / wid) * 100;
-            // const time = parseInt((this.MaxTime * this.touch.width) / 100);
-            // this.nowTime = this.formTime(time);
             if (this.touch.width >= 100) {
                 this.touch.width = 100;
                 this.end();
@@ -73,7 +70,10 @@ export default {
             this.setpercentage(this.touch.width);
         },
         end() {
-            this.touch.type = this.$emit('chenge_percentage', this.percentage);
+            this.touch.type = this.$emit(
+                "chenge_percentage",
+                this.percentage / 100
+            );
             // this.touch.type = true;
         },
         chengPercentage(e) {
@@ -87,13 +87,13 @@ export default {
             }
             this.touch.width = ((clientX - left) / wid) * 100;
             this.setpercentage(this.touch.width);
-            this.$emit('chenge_percentage', this.percentage);
+            this.touch.type = this.$emit(
+                "chenge_percentage",
+                this.percentage / 100
+            );
         },
         setpercentage(val) {
             this.percentage = val;
-        },
-        return_percentage() {
-            return this.percentage;
         }
     },
     // 生命周期 - 创建完成（可以访问当前this实例）

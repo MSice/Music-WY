@@ -3,6 +3,7 @@
   * @param {*} time 时长 单位：s number类型
   */
 export function music_time(time) {
+    console.log(new Date().getSeconds()  + '-------8');
     if (typeof time != 'number') {
         return '00:00';
     }
@@ -27,5 +28,6 @@ export function music_time(time) {
         s = '0' + s;
     }
     timeFormat = timeFormat + s;
+    console.log(new Date().getSeconds()  + '-------9');
     return timeFormat;
 }
