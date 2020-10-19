@@ -14,7 +14,10 @@
             </div>
         </div>
         <div class="content">
-            <div class="music-pic">
+            <div class="lyric">
+                <slot name="lyric"></slot>
+            </div>
+            <div class="music-pic" style="display:none;">
                 <img :src="music_info.picSrc" alt="歌曲主题图片" />
             </div>
         </div>

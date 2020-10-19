@@ -9,6 +9,9 @@
                 @play="play"
                 @setfullscreen="setfullscreen"
             >
+                <template v-slot:;lyric>
+                    <lyric></lyric>
+                </template>
                 <template v-slot:nowtime>{{nowTime}}</template>
                 <template v-slot:slide>
                     <slide-process
@@ -47,13 +50,13 @@
 
 <script>
 // FullPlayer
-import { MiniPlayer, FullPlayer } from "./compontents";
+import { MiniPlayer, FullPlayer, Lyric } from "./compontents";
 import { SlideProcess } from "@/components/tool";
 import { music_time } from "@/utils/fillter";
 import { mapMutations, mapGetters } from "vuex";
 import { _getSongDetail, _getSongUrl } from "@/api/musicPlayer";
 export default {
-    components: { MiniPlayer, FullPlayer, SlideProcess },
+    components: { MiniPlayer, FullPlayer, SlideProcess, Lyric },
     data() {
         return {
             musicUrl: "",
